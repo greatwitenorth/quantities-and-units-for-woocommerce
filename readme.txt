@@ -67,7 +67,8 @@ Manual Installation
 
 == Changelog ==
 = 1.0.6 =
-* Min and step rules now work with ajax add to cart functionality in WooCommerce 2.5+  
+* Min and step rules now work with ajax add to cart functionality in WooCommerce 2.5+
+* Added min width css rule on quantity input box
 
 = 1.0.5 =
 * Fixed issue when trying to save advanced rules.
