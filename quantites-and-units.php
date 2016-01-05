@@ -53,7 +53,8 @@ class WC_Quantities_and_Units {
 		require_once( 'includes/class-wcqu-product-unit.php' );
 		
 		// Add Scripts and styles		
-		add_action( 'wp_enqueue_scripts', array( $this, 'input_value_validation' ) );	
+		add_action( 'wp_enqueue_scripts', array( $this, 'input_value_validation' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'admin_init', array( $this, 'quantity_styles' ) );
 		
 		// Set WC Version Number 
@@ -167,6 +168,13 @@ class WC_Quantities_and_Units {
 		}
 	}
 
+	public function enqueue_styles() {
+		wp_enqueue_style(
+				'wcqu_quantity_styles',
+				plugins_url( '/assets/css/styles.css', __FILE__ )
+		);
+	}
+
 	/*
 	*	Include JS to round any value that isn't a multiple of the 
 	*	step up.
@@ -242,12 +250,12 @@ class WC_Quantities_and_Units {
 		if ( is_admin() ) {
 		
 			wp_enqueue_style( 
-				'ipq_quantity_styles', 
-				plugins_url( '/assets/css/styles.css', __FILE__ )
+				'wcqu_admin_quantity_styles', 
+				plugins_url( '/assets/css/admin-styles.css', __FILE__ )
 			);
 					
 			wp_enqueue_script( 
-				'ipq_admin_script', 
+				'wcqu_admin_script', 
 				plugins_url( '/assets/js/ipq_admin_script.js', __FILE__ ),
 				array( 'jquery' )
 			);
