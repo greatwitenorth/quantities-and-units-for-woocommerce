@@ -3,7 +3,7 @@ Contributors: greatwitenorth
 Tags: woocommerce, product quantities, product minimum values, product maximum values, product step values, incremental product quantities, min, max, decimal
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ Features:
 * Added Custom Quantity Message Option
 * Added Out of Stock Min/Max
 * Added Role Support, create rules based on user roles.
-* Improved performance / cacheing
+* Improved performance / caching
 * Improved admin interface
 * Allows rules to have a minimum of 0
 * Get started in minutes
@@ -55,7 +55,7 @@ Automatic WordPress Installation
 4. Install and Activate the Plugin
 5. Set Rules for categories by clicking the new ‘Quantity Rules’ sidebar option or assign per-product rules by using the new metabox on your product page.
 
-NOTE: to enable decimal quantities you need to define the 'Step' value on a per prduct basis, or globally for the site under Quantity Rule -> Advanced Rule -> Site Wide Step Value.
+NOTE: to enable decimal quantities you need to define the 'Step' value on a per product basis, or globally for the site under Quantity Rule -> Advanced Rule -> Site Wide Step Value.
 
 Manual Installation
 
@@ -66,6 +66,9 @@ Manual Installation
 6. Set Rules for categories by clicking the new ‘Quantity Rules’ sidebar option or assign per-product rules by using the new metabox on your product page.
 
 == Changelog ==
+= 1.0.8 =
+* allow decimals on Advanced Rules page
+
 = 1.0.7 =
 * fixed min step value based min value.
 
