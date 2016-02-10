@@ -194,35 +194,35 @@ class WC_Quantities_and_Units_Advanced_Rules {
 					<tr>
 						<th>Site Wide Product Minimum</th>
 						<td><input type='number' name='ipq_site_min' id='ipq_site_min'
-							value='<?php if ( isset( $ipq_site_min ) and $ipq_site_min != '' ) echo $ipq_site_min; ?>'
+							value='<?php if ( isset( $ipq_site_min ) and $ipq_site_min != '' ) echo $ipq_site_min; ?>' step="any"
 						 /></td>
 					</tr>
 					
 					<tr>
 						<th>Site Wide Product Maximum</th>
 						<td><input type='number' name='ipq_site_max' id='ipq_site_max'
-							value='<?php if ( isset( $ipq_site_max ) and $ipq_site_max != '' ) echo $ipq_site_max; ?>'
+							value='<?php if ( isset( $ipq_site_max ) and $ipq_site_max != '' ) echo $ipq_site_max; ?>' step="any"
 						 /></td>
 					</tr>
 					
 					<tr>
 						<th>Site Wide Product Minimum Out of Stock</th>
 						<td><input type='number' name='ipq_site_min_oos' id='ipq_site_min_oos'
-							value='<?php if ( isset( $ipq_site_min_oos ) and $ipq_site_min_oos != '' ) echo $ipq_site_min_oos; ?>'
+							value='<?php if ( isset( $ipq_site_min_oos ) and $ipq_site_min_oos != '' ) echo $ipq_site_min_oos; ?>' step="any"
 						 /></td>
 					</tr>
 					
 					<tr>
 						<th>Site Wide Product Maximum Out of Stock</th>
 						<td><input type='number' name='ipq_site_max_oos' id='ipq_site_max_oos'
-							value='<?php if ( isset( $ipq_site_max_oos ) and $ipq_site_max_oos != '' ) echo $ipq_site_max_oos; ?>'
+							value='<?php if ( isset( $ipq_site_max_oos ) and $ipq_site_max_oos != '' ) echo $ipq_site_max_oos; ?>' step="any"
 						 /></td>
 					</tr>
 					
 					<tr>
 						<th>Site Wide Step Value</th>
 						<td><input type='number' step='any' name='ipq_site_step' id='ipq_site_step'
-							value='<?php if ( isset( $ipq_site_step ) and $ipq_site_step != '' ) echo $ipq_site_step; ?>'
+							value='<?php if ( isset( $ipq_site_step ) and $ipq_site_step != '' ) echo $ipq_site_step; ?>' step="any"
 						 /></td>
 					</tr>
 					
