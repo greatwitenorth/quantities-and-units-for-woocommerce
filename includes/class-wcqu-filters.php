@@ -8,12 +8,12 @@ class WC_Quantities_and_Units_Filters {
 	public function __construct() {
 		
 		// Cart input box variable filters
-		add_filter( 'woocommerce_quantity_input_min', array( $this, 'input_min_value' ), 1, 2);
-		add_filter( 'woocommerce_quantity_input_max', array( $this, 'input_max_value' ), 1, 2);
-		add_filter( 'woocommerce_quantity_input_step', array( $this, 'input_step_value' ), 1, 2);
+		add_filter( 'woocommerce_quantity_input_min', array( $this, 'input_min_value' ), 10, 2);
+		add_filter( 'woocommerce_quantity_input_max', array( $this, 'input_max_value' ), 10, 2);
+		add_filter( 'woocommerce_quantity_input_step', array( $this, 'input_step_value' ), 10, 2);
 		
 		// Product input box argument filter
-		add_filter( 'woocommerce_quantity_input_args', array( $this, 'input_set_all_values' ), 1, 2 );
+		add_filter( 'woocommerce_quantity_input_args', array( $this, 'input_set_all_values' ), 10, 2 );
 
 		add_filter( 'woocommerce_loop_add_to_cart_args', array( $this, 'woocommerce_loop_add_to_cart_args' ), 10, 2 );
 	}
@@ -176,7 +176,7 @@ class WC_Quantities_and_Units_Filters {
 		
 		// Check if the product is out of stock 
 		$stock = $product->get_stock_quantity();
-
+		
 		// Check stock status and if Out try Out of Stock value	
 		if ( strlen( $stock ) != 0 and $stock <= 0 and isset( $values['min_oos'] ) and $values['min_oos'] != '' ) {
 			$args['min_value'] = $values['min_oos'];
