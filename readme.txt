@@ -3,7 +3,7 @@ Contributors: greatwitenorth
 Tags: woocommerce, product quantities, product minimum values, product maximum values, product step values, incremental product quantities, min, max, decimal
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,9 @@ Manual Installation
 6. Set Rules for categories by clicking the new ‘Quantity Rules’ sidebar option or assign per-product rules by using the new metabox on your product page.
 
 == Changelog ==
+= 1.0.9 =
+* fixed compatibility with Thumbnail Quantites
+
 = 1.0.8 =
 * allow decimals on Advanced Rules page
 
