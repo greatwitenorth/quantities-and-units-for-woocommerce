@@ -142,9 +142,9 @@ function wcqu_get_applied_rule_obj( $product, $role = null ) {
 *	Get the Input Value (min/max/step/priority/role/all) for a product given a rule
 *
 *	@params string	$type Product type
-*	@params object 	$produt Product Object 
+*	@params object 	$product Product Object 
 *	@params object	$rule Quantity Rule post object
-*	@return void 	 
+*	@return mixed
 */
 function wcqu_get_value_from_rule( $type, $product, $rule ) {
 
@@ -378,3 +378,51 @@ function wcqu_fmod_round($x, $y) {
 	$i = round($x / $y, $places);
 	return round(($x - $i * $y), $places);
 }
+
+if ( ! function_exists( 'wpbo_get_applied_rule' ) ) {
+
+	/**
+	 * Provides backwards compatibility for plugins that tied into this plugin pre-fork
+	 *
+	 * @params object    $product WC_Product object
+	 * @param  string    User role to get rule from, otherwise current user role is used
+	 *
+	 * @return mixed     String of rule status / Object top rule post
+	 *
+	 * @deprecated
+	 */
+	function wpbo_get_applied_rule( $product ) {
+		return wcqu_get_applied_rule( $product );
+	}
+}
+
+if ( ! function_exists( 'wpbo_get_value_from_rule' ) ) {
+
+	/**
+	 * Provides backwards compatibility for plugins that tied into this plugin pre-fork
+	 *
+	 * @params string    $type Product type
+	 * @params object    $product Product Object
+	 * @params object    $rule Quantity Rule post object
+	 *
+	 * @return mixed
+	 *
+	 * @deprecated
+	 */
+	function wpbo_get_value_from_rule( $type, $product, $rule ) {
+		return wcqu_get_value_from_rule( $type, $product, $rule );
+	}
+}
+
+
+/**
+ * This is ugly, but we need to pretend that the pre-forked version of this plugin is active since Thumbnail Quantities 
+ * does a check whether it active. It'd be nice if they just made it a filter instead. Also TQ has some incorrect 
+ * javascript rounding on decimal values, so we may just have to fork it at some point as well.
+ */
+add_filter( 'active_plugins', function($plugins){
+	if(!in_array('woocommerce-incremental-product-quantities/product-quantity-rules.php', $plugins)){
+		$plugins[] = 'woocommerce-incremental-product-quantities/product-quantity-rules.php';
+	}
+	return $plugins;
+});
