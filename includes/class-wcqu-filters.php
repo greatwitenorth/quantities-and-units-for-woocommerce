@@ -40,7 +40,10 @@ class WC_Quantities_and_Units_Filters {
 
 		// Get Value from Rule
 		$min = wcqu_get_value_from_rule( 'min', $product, $rule );
+		$min = isset($min['min']) ? $min['min'] : 1;
+		
 		$step = wcqu_get_value_from_rule( 'step', $product, $rule );
+		$step = isset($step['step']) ? $step['step'] : 1;
 		
 		if(!$min && $step > 0){
 			$args['quantity'] = $step;
@@ -74,6 +77,7 @@ class WC_Quantities_and_Units_Filters {
 
 		// Get Value from Rule
 		$min = wcqu_get_value_from_rule( 'min', $product, $rule );
+		
 		// Return Value
 		if ( $min == '' or $min == null or (isset($min['min']) and $min['min'] == "")) {
 			return $default;
