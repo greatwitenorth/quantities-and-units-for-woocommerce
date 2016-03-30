@@ -36,7 +36,7 @@ function wcqu_get_applied_rule( $product, $role = null ) {
 *	@return mixed 	Null if no rule applies / Object top rule post 
 */
 function wcqu_get_applied_rule_obj( $product, $role = null ) {
-
+	
 	// Get Product Terms
 	$product_cats = wp_get_post_terms( $product->id, 'product_cat' );
 	$product_tags = wp_get_post_terms( $product->id, 'product_tag' );	
@@ -48,17 +48,15 @@ function wcqu_get_applied_rule_obj( $product, $role = null ) {
 		$user_data = get_userdata( get_current_user_id() );
 		if ( $user_data->roles ) {
 			foreach ( $user_data->roles as $cap => $val ) {
-				$role = $cap;
+				$role = $val;
 			}
 		}
 	}
 
 	// Combine all product terms
 	$product_terms = array_merge( $product_cats, $product_tags );
-
 	// Check for rule / role transient
 	if ( false === ( $rules = get_transient( 'ipq_rules_' . $role ) ) ) {
-		
 		// Get all Rules
 		$args = array(
 			'posts_per_page'   	=> -1,
@@ -134,7 +132,7 @@ function wcqu_get_applied_rule_obj( $product, $role = null ) {
 		 	}
 		}
 	}
-
+	
 	return $top_rule;	
 }
 

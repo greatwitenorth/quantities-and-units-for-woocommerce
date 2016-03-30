@@ -45,36 +45,29 @@ class WC_Quantities_and_Units_Quantity_Meta_Boxes {
 		global $wp_roles;
 				
 		// Get the product and see what rules are being applied
-		$pro = get_product( $post );
+		$pro = wc_get_product( $post );
 		
 		// Get applied rules by user role
 		$roles = $wp_roles->get_names();
 		$roles['guest'] = "Guest";
 		
 		$rules_by_role = array();
-		
+
+		$rule = null;
 		// Loop through roles
 		foreach ( $roles as $slug => $name ) {
-			$rule = wcqu_get_applied_rule( $pro, $slug );
+			$newRule = wcqu_get_applied_rule( $pro, $slug );
 
-			if ( $rule == 'inactive' or $rule == 'override' or $rule == 'sitewide' )
+			// Set the latest $rule if its not null. This will
+			// be used later below in the if statements
+			$rule = $newRule ? $newRule : $rule;
+
+			if ( $newRule == 'inactive' or $newRule == 'override' or $newRule == 'sitewide' )
 				continue;
 				
-			$rules_by_role[$name] = $rule;
+			$rules_by_role[$name] = $newRule;
 		}
 		
-		// $rule_result = wcqu_get_applied_rule( $pro );
-		
-	/*
-	// If there isn't a rule mark rule as null, otherwise get the id
-		if ( $rule_result != 'inactive' and $rule_result != 'override' ) {
-			$rule = $rule_result;
-			$values = wcqu_get_value_from_rule( 'all', $pro, $rule );
-		} else {
-			$rule = $rule_result;
-		}
-	*/
-	
 		// Display Rule Being Applied
 		if ( $rule == 'inactive' ) {
 			echo "<div class='inactive-rule rule-message'>No rule is being applied becasue you've deactivated the plugin for this product.</div>";
@@ -118,15 +111,18 @@ class WC_Quantities_and_Units_Quantity_Meta_Boxes {
 				</table>
 			</div>
 			<?php 
-		} elseif ( ! isset( $rule->post_title ) or $rule->post_title == null ) {
+		} elseif ( (! isset( $rule->post_title ) or $rule->post_title == null) ) {
 			echo "<div class='no-rule rule-message'>No rule is currently being applied to this product.</div>";
 			
 		} else { ?>
 			<div class="active-rule">
 				<span>Active Rule:</span>
-				<a href='<?php echo get_edit_post_link( $rule->ID ) ?>'>
-					<?php echo $rule->post_title ?>
-				</a>
+				<?php foreach ( $rules_by_role as $rule ): ?>
+					<?php if(empty($rule)) continue; ?>
+					<a href='<?php echo get_edit_post_link( $rule->ID ) ?>'>
+						<?php echo $rule->post_title ?>
+					</a>
+				<?php endforeach; ?>
 				<span class='active-toggle'><a>Show/Hide Active Rules by Role &#x25BC;</a></span>
 			</div>
 	
