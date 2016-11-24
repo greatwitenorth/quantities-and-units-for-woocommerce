@@ -16,7 +16,7 @@ jQuery(document).ready( function($) {
 	*	If user enters a value that is out of bounds, 
 	*	it will be auto corrected to a valid value.
 	*/		
-	$(document).on('change', '.qty', function(e) {
+	$(document).on('change input', '.qty', function(e) {
 		var $input = $(e.currentTarget);
 		// Get values from input box
 		var step = $input.attr( 'step' );
@@ -62,7 +62,7 @@ jQuery(document).ready( function($) {
 			new_qty = +new_qty + (+step - +rem);
 			
 			// Max Value Validation
-			if ( +new_qty > +max ) {
+			if ( max > 0 && +new_qty > +max ) {
 				new_qty = +new_qty - +step;
 			}
 		}

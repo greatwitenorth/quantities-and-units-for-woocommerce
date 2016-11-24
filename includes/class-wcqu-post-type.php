@@ -22,7 +22,7 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 		add_action( 'add_meta_boxes', array( $this, 'quantity_rule_role_init' 	) );
 		add_action( 'add_meta_boxes', array( $this, 'rate_us_notice' 			) );
 //		add_action( 'add_meta_boxes', array( $this, 'input_thumbnail_notice' 	) );
-//		add_action( 'add_meta_boxes', array( $this, 'company_notice' 			) );
+		add_action( 'add_meta_boxes', array( $this, 'company_notice' 			) );
 		
 		// Save post meta on post update
 		add_action( 'save_post', array( $this, 'save_quantity_rule_meta'  ) );
@@ -421,7 +421,7 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 	
 		add_meta_box(	
 			'wpqu-company-notice', 
-			'Message from WP BackOffice', 
+			'Rapid Order', 
 			array( $this, 'company_notice_meta' ), 
 			'quantity-rule', 
 			'side', 
@@ -432,9 +432,9 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 	public function company_notice_meta( $post ) {
 		
 		?>
-			<a href="http://www.wpbackoffice.com" target="_blank"><img src="<?php echo plugins_url() ?>/woocommerce-incremental-product-quantities/assets/img/wpbo-logo.png" /></a>
+			<a href="http://rapidorderplugin.com/?utm_source=QU%20Plugin%20Admin&utm_medium=sidebar&utm_campaign=Fast%20order%20form%20for%20WooCommerce" target="_blank"><img align="center" src="<?php echo plugins_url() ?>/quantities-and-units-for-woocommerce/assets/img/rapid-order-logo.png" /></a>
 			<p>
-				<a href="http://www.wpbackoffice.com" target="_blank">WooCommerce Hosting, Customization, Support</a>
+				<a href="http://rapidorderplugin.com/?utm_source=QU%20Plugin%20Admin&utm_medium=sidebar&utm_campaign=Fast%20order%20form%20for%20WooCommerce" target="_blank">Fast order form for WooCommerce</a>
 			</p>
 		<?php 
 	}
