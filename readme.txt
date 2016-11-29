@@ -4,7 +4,7 @@ Tags: woocommerce, product quantities, product minimum values, product maximum v
 Donate link: https://www.nickv.codes/donate
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.0.12
+Stable tag: 1.0.13
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ Manual Installation
 6. Set Rules for categories by clicking the new ‘Quantity Rules’ sidebar option or assign per-product rules by using the new metabox on your product page.
 
 == Changelog ==
+= 1.0.13 =
+* Fixed input issue introduced in 10.0.12 release
+
 = 1.0.12 =
 * Fixed an issue where sometimes the correct value would not display when using decimal quantities. 
 
