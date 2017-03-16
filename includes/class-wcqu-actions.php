@@ -65,9 +65,11 @@ class WC_Quantities_and_Units_Actions {
 	
 		global $product;
 		
+		/*I'm commenting this out so i can show minimum qty on archive.
+		
 		if ( !is_product() ) {
 			return;
-		}
+		}*/
 		
 		if( $product->product_type == 'grouped' )
 			return;
