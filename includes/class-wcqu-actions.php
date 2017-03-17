@@ -51,7 +51,7 @@ class WC_Quantities_and_Units_Actions {
 			}
 			
 			add_action( 'woocommerce_single_product_summary', array( $this, 'display_minimum_quantity_note' ), $priority );
-			
+			add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'display_minimum_quantity_note' ), 10, 2);
 		}	
 	}
 	
@@ -65,9 +65,11 @@ class WC_Quantities_and_Units_Actions {
 	
 		global $product;
 		
+		/*I'm commenting this out so i can show minimum qty on archive.
+		
 		if ( !is_product() ) {
 			return;
-		}
+		}*/
 		
 		if( $product->product_type == 'grouped' )
 			return;
