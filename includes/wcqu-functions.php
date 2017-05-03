@@ -13,10 +13,10 @@ function wcqu_get_applied_rule( $product, $role = null ) {
 	// Check for site wide rule
 	$options = get_option( 'ipq_options' );
 	
-	if ( get_post_meta( $product->id, '_wpbo_deactive', true ) == 'on' ) {
+	if ( get_post_meta( $product->get_id(), '_wpbo_deactive', true ) == 'on' ) {
 		return 'inactive';
 		
-	} elseif ( get_post_meta( $product->id, '_wpbo_override', true ) == 'on' ) {
+	} elseif ( get_post_meta( $product->get_id(), '_wpbo_override', true ) == 'on' ) {
 		return 'override';
 	
 	} elseif ( isset( $options['ipq_site_rule_active'] ) and $options['ipq_site_rule_active'] == 'on' ) {
