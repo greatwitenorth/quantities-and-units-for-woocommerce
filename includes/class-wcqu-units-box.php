@@ -5,7 +5,7 @@ if ( ! class_exists( 'WC_Quantities_and_Units_Units_Box' ) ) :
 
 	class WC_Quantities_and_Units_Units_Box {
 		public function __construct() {
-			add_action( 'woocommerce_product_write_panels', array( $this, 'units_box_create' ) );
+			add_action( 'woocommerce_product_data_panels', array( $this, 'units_box_create' ) );
 			add_action( 'save_post', array( $this, 'save_unit_meta_data' ) );
 			add_action( 'woocommerce_product_write_panel_tabs', array($this, 'units_box_tab'), 99 );
 		}

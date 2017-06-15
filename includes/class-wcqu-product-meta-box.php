@@ -19,10 +19,10 @@ class WC_Quantities_and_Units_Quantity_Meta_Boxes {
 
 		if ( $post->post_type == 'product' ) {
 			
-			$product = get_product( $post->ID );
+			$product = wc_get_product( $post->ID );
 			$unsupported_product_types = array( 'external', 'grouped' );
 
-			if ( ! in_array( $product->product_type, $unsupported_product_types ) ) {
+			if ( ! in_array( $product->get_type(), $unsupported_product_types ) ) {
 						
 				add_meta_box(
 					'wpbo_product_info', 
