@@ -31,7 +31,7 @@ class WC_Quantities_and_Units_Filters {
 	 */
 	public function woocommerce_loop_add_to_cart_args( $args, $product ) {
 		// Return Defaults if it isn't a simple product 
-		if( $product->product_type != 'simple' ) {
+		if( $product->get_type() != 'simple' ) {
 			return $args;
 		}
 
@@ -68,7 +68,7 @@ class WC_Quantities_and_Units_Filters {
 	public function input_min_value( $default, $product ) {
 
 		// Return Defaults if it isn't a simple product 
-		if( $product->product_type != 'simple' ) {
+		if( $product->get_type() != 'simple' ) {
 			return $default;
 		}
 		
@@ -98,7 +98,7 @@ class WC_Quantities_and_Units_Filters {
 	public function input_max_value( $default, $product ) {	
 		
 		// Return Defaults if it isn't a simple product
-		if( $product->product_type != 'simple' ) {
+		if( $product->get_type() != 'simple' ) {
 			return $default;
 		}
 		
@@ -128,7 +128,7 @@ class WC_Quantities_and_Units_Filters {
 	public function input_step_value( $default, $product ) {
 		
 		// Return Defaults if it isn't a simple product
-		if( $product->product_type != 'simple' ) {
+		if( $product->get_type() != 'simple' ) {
 			return $default;
 		}
 		
@@ -160,7 +160,7 @@ class WC_Quantities_and_Units_Filters {
 		// Return Defaults if it isn't a simple product
 		/* Commented out to allow for grouped and variable products
 		*  on their product pages
-		if( $product->product_type != 'simple' ) {
+		if( $product->get_type() != 'simple' ) {
 			return $args;
 		}
 		*/

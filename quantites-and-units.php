@@ -196,10 +196,10 @@ class WC_Quantities_and_Units {
 			if ( ! is_cart() ) {
 				
 				// Get the product
-				$pro = get_product( $post );
+				$pro = wc_get_product($post);
 				
 				// Check if variable
-				if ( $pro->product_type == 'variable' ) {
+				if ( $pro->get_type() == 'variable' ) {
 
 					// See what rules are being applied
 					$rule_result = wcqu_get_applied_rule( $pro );

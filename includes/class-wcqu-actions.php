@@ -69,7 +69,7 @@ class WC_Quantities_and_Units_Actions {
 			return;
 		}
 		
-		if( $product->product_type == 'grouped' )
+		if( $product->get_type() == 'grouped' )
 			return;
 		
 		$settings = get_option( 'ipq_options' );
