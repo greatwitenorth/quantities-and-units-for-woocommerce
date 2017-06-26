@@ -70,6 +70,9 @@ Manual Installation
 6. Set Rules for categories by clicking the new ‘Quantity Rules’ sidebar option or assign per-product rules by using the new metabox on your product page.
 
 == Changelog ==
+= 1.0.14 =
+* Fixed an issue related to a category being deleted
+
 = 1.0.13 =
 * Fixed input issue introduced in 10.0.12 release
 
