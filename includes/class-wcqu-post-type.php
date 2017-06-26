@@ -122,6 +122,11 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 						$term = get_term_by( 'id', $cat, $taxonomy );
 						$link = get_term_link( $term );
 
+						if ( !$term || is_wp_error( $link ) ) {
+							echo "Unknown / Deleted Category<br />";
+							continue;
+						}
+
 						echo "<a href='" . $link . "'>" . $term->name . "</a><br />";
 					}
 				}
