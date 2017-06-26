@@ -112,21 +112,21 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 		    case 'step':
 		        echo get_post_meta( $id, '_step', true );	       
 		        break;
-		        
-		    case 'cats':
-		   		$cats = get_post_meta( $id, '_cats', false);
-		   		if ( $cats != false and count( $cats[0] ) > 0 ) {	   		
-			   		foreach ( $cats[0] as $cat ){
-		
-			   			$taxonomy = 'product_cat'; 	
-				   		$term = get_term_by( 'id', $cat, $taxonomy );
-			   			$link = get_term_link( $term );	
-			   			
-			   			echo "<a href='" . $link . "'>" . $term->name . "</a><br />";	
-			   		}
-			   	} 
-		        break;  
-		        
+
+			case 'cats':
+				$cats = get_post_meta( $id, '_cats', false);
+				if ( $cats != false and count( $cats[0] ) > 0 ) {
+					foreach ( $cats[0] as $cat ) {
+
+						$taxonomy = 'product_cat';
+						$term = get_term_by( 'id', $cat, $taxonomy );
+						$link = get_term_link( $term );
+
+						echo "<a href='" . $link . "'>" . $term->name . "</a><br />";
+					}
+				}
+				break;
+
 		    case 'product_tags':
 		    	$tags = get_post_meta( $id, '_tags', false);
 		   		if ( $tags != null and count( $tags[0] ) > 0) {	   		
