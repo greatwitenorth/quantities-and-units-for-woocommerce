@@ -15,14 +15,14 @@ class WC_Quantities_and_Units_Quantity_Meta_Boxes {
 	*	Register Rule Meta Box for Product Page for all but external products
 	*/
 	public function meta_box_create() {
-		global $post, $woocommerce;
+		global $post;
 
 		if ( $post->post_type == 'product' ) {
 			
-			$product = get_product( $post->ID );
+			$product = wc_get_product( $post->ID );
 			$unsupported_product_types = array( 'external', 'grouped' );
 
-			if ( ! in_array( $product->product_type, $unsupported_product_types ) ) {
+			if ( ! $product->is_type( $unsupported_product_types ) ) {
 						
 				add_meta_box(
 					'wpbo_product_info', 
@@ -41,7 +41,6 @@ class WC_Quantities_and_Units_Quantity_Meta_Boxes {
 	*/
 	function product_meta_box_content( $post ) {
 		global $product;
-		global $woocommerce;
 		global $wp_roles;
 				
 		// Get the product and see what rules are being applied

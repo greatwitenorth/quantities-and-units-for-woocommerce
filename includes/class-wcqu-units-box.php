@@ -5,13 +5,13 @@ if ( ! class_exists( 'WC_Quantities_and_Units_Units_Box' ) ) :
 
 	class WC_Quantities_and_Units_Units_Box {
 		public function __construct() {
-			add_action( 'woocommerce_product_write_panels', array( $this, 'units_box_create' ) );
+			add_action( 'woocommerce_product_data_panels', array( $this, 'units_box_create' ) );
 			add_action( 'save_post', array( $this, 'save_unit_meta_data' ) );
 			add_action( 'woocommerce_product_write_panel_tabs', array($this, 'units_box_tab'), 99 );
 		}
 
 		function units_box_tab() {
-			echo '<li class="wciu_units_panel hide_if_grouped"><a href="#wciu_units_panel">Unit</a></li>';
+			echo '<li class="wciu_units_panel hide_if_grouped"><a href="#wciu_units_panel"><span>' . __( 'Unit', 'quantities-and-units' ). '</span></a></li>';
 		}
 
 		public function units_box_create() {
