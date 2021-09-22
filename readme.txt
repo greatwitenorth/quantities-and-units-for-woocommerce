@@ -2,24 +2,24 @@
 Contributors: greatwitenorth
 Tags: woocommerce, product quantities, product minimum values, product maximum values, product step values, incremental product quantities, min, max, decimal
 Donate link: https://www.nickv.codes/donate
-Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: 1.0.13
+Requires at least: 5.8
+Tested up to: 5.8
+Stable tag: 2.0.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Easily require your customers to buy a minimum / maximum / incremental amount of products. Supports decimal quantities.
 
 == Description ==
-NOTE: This plugin has been forked from the "Advanced Product Quantities" plugin. It adds decimal quantities support and 
-units to products. Please don't attempt to run both plugins simultaneously. It not needed and the universe will 
+NOTE: This plugin has been forked from the "Advanced Product Quantities" plugin. It adds decimal quantities support and
+units to products. Please don't attempt to run both plugins simultaneously. It not needed and the universe will
 probably implode.
 
-With Quantities and Units for WooCommerce you can easily create rules that restrict the amount of products a user can 
-buy at once. Set Minimum, Maximum and Step values for any product type and must be valid before a customer can proceed 
+With Quantities and Units for WooCommerce you can easily create rules that restrict the amount of products a user can
+buy at once. Set Minimum, Maximum and Step values for any product type and must be valid before a customer can proceed
 to checkout. Quantities and Units also bring decimal quantity support to WooCommerce.
 
-This plugin works great with [Rapid Order](http://rapidorderplugin.com/), a fast ordering system for WooCommerce. 
+This plugin works great with [Rapid Order](http://rapidorderplugin.com/), a fast ordering system for WooCommerce.
 
 New Features
 
@@ -47,7 +47,7 @@ Features:
 * Now fully supports ALL PRODUCT TYPES, simple, variable, grouped and affiliate
 * Create Site Wide rules that apply to every product unless overwritten on a per-product basis
 * Create rules by Product Tags (opposed to just categories)
-* Woocommerce +2.0 compatible 
+* Woocommerce +2.0 compatible
 
 == Installation ==
 
@@ -74,7 +74,7 @@ Manual Installation
 * Fixed input issue introduced in 10.0.12 release
 
 = 1.0.12 =
-* Fixed an issue where sometimes the correct value would not display when using decimal quantities. 
+* Fixed an issue where sometimes the correct value would not display when using decimal quantities.
 
 = 1.0.11 =
 * Fixed issue with max value causing amount not to increment correctly in some circumstances.
@@ -119,7 +119,7 @@ Manual Installation
 == Screenshots ==
 
 1. Single product page, page loads with it's minimum quantity and notifies the user below.
-1. Create rule page. 
+1. Create rule page.
 1. Single product 'Product Quantity Rules' meta box. Deactivate or override rules. Even set out of stock min/max values.
 1. Single product 'Product Quantity Rules' meta box. Display of values by user role.
 1. 'Advanced Rules' page, set sitewide rules and configure quantity notifications (screenshot 1)

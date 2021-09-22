@@ -61,7 +61,7 @@ class WC_Quantities_and_Units_Product_Unit {
 	 */
 	public function get_price_suffix( $price_display_suffix, $product ) {
 		// todo make default unit configuarble
-		if ( $unit = $this->get_unit_for_product( $product->id, apply_filters( 'wciu_default_price_suffix', __( '', 'woocommerce' ) ) ) ) {
+		if ( $unit = $this->get_unit_for_product( $product->get_id(), apply_filters( 'wciu_default_price_suffix', __( '', 'woocommerce' ) ) ) ) {
 			$price_display_suffix = "/" . $unit . " " . $price_display_suffix;
 		}
 
@@ -77,7 +77,7 @@ class WC_Quantities_and_Units_Product_Unit {
 	 * @return  string
 	 */
 	public function sale_price_from_to( $price, $from, $to, $product ) {
-		if ( $unit = get_post_meta( $product->id, 'unit', true ) ) {
+		if ( $unit = get_post_meta( $product->get_id(), 'unit', true ) ) {
 			$price = '<del>' . ( ( is_numeric( $from ) ) ? wc_price( $from ) : $from ) . '/' . $unit . '</del> <ins>' . ( ( is_numeric( $to ) ) ? wc_price( $to ) : $to ) . '/' . $unit . '</ins>';
 		}
 
@@ -91,7 +91,7 @@ class WC_Quantities_and_Units_Product_Unit {
 	 * @return  string
 	 */
 	public function price_html( $html, $product ) {
-		$unit = get_post_meta( $product->id, 'unit', true );
+		$unit = get_post_meta( $product->get_id(), 'unit', true );
 		if ( $unit ) {
 			return $html . '/' . $unit;
 		}
